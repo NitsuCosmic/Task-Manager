@@ -8,6 +8,7 @@ export const TodoApp = () => {
 				<section className="p-6">
 					<TaskForm />
 				</section>
+        
 			</div>
 		</div>
 	);
