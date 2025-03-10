@@ -1,7 +1,11 @@
+import { TodoApp } from "./components/TodoApp";
+
 function App() {
 	return (
 		<>
-			<h1>hello world</h1>
+			<main className="font-nunito min-h-svh p-4 md:p-8 bg-gray-50">
+				<TodoApp />
+			</main>
 		</>
 	);
 }
