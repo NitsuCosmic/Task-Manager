@@ -3,20 +3,23 @@ import { Tab } from "./TodoApp";
 import { Button } from "./ui/button";
 
 type TabNavigationProps = {
-	tab: string;
-	changeTab: (value: Tab) => void;
+	activeTab: string;
+	onTabChange: (value: Tab) => void;
 };
 
-export const TabNavigation = ({ tab, changeTab }: TabNavigationProps) => {
+export const TabNavigation = ({
+	activeTab,
+	onTabChange,
+}: TabNavigationProps) => {
 	const handleClick = (value: Tab) => {
-		changeTab(value);
+		onTabChange(value);
 	};
 
 	return (
 		<div className="flex flex-wrap gap-2 mb-6">
 			<Button
 				className="cursor-pointer"
-				variant={tab === "all" ? "default" : "outline"}
+				variant={activeTab === "all" ? "default" : "outline"}
 				onClick={() => handleClick("all")}
 			>
 				<LayoutGrid className="h-4 w-4 mr-2" />
@@ -24,7 +27,7 @@ export const TabNavigation = ({ tab, changeTab }: TabNavigationProps) => {
 			</Button>
 			<Button
 				className="cursor-pointer"
-				variant={tab === "todo" ? "default" : "outline"}
+				variant={activeTab === "todo" ? "default" : "outline"}
 				onClick={() => handleClick("todo")}
 			>
 				<ListTodo className="h-4 w-4 mr-2" />
@@ -32,7 +35,7 @@ export const TabNavigation = ({ tab, changeTab }: TabNavigationProps) => {
 			</Button>
 			<Button
 				className="cursor-pointer"
-				variant={tab === "in-progress" ? "default" : "outline"}
+				variant={activeTab === "in-progress" ? "default" : "outline"}
 				onClick={() => handleClick("in-progress")}
 			>
 				<Clock className="h-4 w-4 mr-2" />
@@ -40,7 +43,7 @@ export const TabNavigation = ({ tab, changeTab }: TabNavigationProps) => {
 			</Button>
 			<Button
 				className="cursor-pointer"
-				variant={tab === "done" ? "default" : "outline"}
+				variant={activeTab === "done" ? "default" : "outline"}
 				onClick={() => handleClick("done")}
 			>
 				<Check className="h-4 w-4 mr-2" />
